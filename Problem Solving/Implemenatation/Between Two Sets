@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+void twosets(int a[],int b[],int n,int m){
+    int count3 = 0;
+    for(int i =a[n-1];i<=b[m-1];i++){
+        int count1 =0;
+        int count2 =0;
+        for(int j=0;j<n;j++){
+            if(i%a[j] == 0){
+                count1 = count1 + 1;
+            }
+        }
+        if(count1 == n){
+            for(int k =0;k<m;k++){
+                if(b[k]%i == 0){
+                    count2 = count2 + 1;
+                }
+            }
+            if (count2 == m){
+                count3 = count3 + 1;
+            }
+        }
+    }
+    cout<<count3;
+}
+int main() {
+int n,m;
+cin>>n>>m;
+int a[n];
+for(int i=0;i<n;i++){
+    cin>>a[i];
+}
+int b[m];
+for(int i=0;i<m;i++){
+    cin>>b[i];
+}
+twosets(a,b,n,m);
+
+}
+
